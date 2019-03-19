@@ -1,0 +1,13 @@
+/* tag cloud
+----------------------------------------------- */
+p.azc-fc{
+	padding-top: 5px;
+	font-style: italic;
+	font-size: 1.1em;
+	font-weight: 900;
+}
+div.azc-fc{
+	border: none;
+	width: 90%;
+	margin: auto;
+}
