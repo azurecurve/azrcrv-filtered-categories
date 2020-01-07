@@ -4,7 +4,7 @@ Tags: categories, category, shortcode, page, widget
 Plugin URI: https://development.azurecurve.co.uk/classicpress-plugins/filtered-categories/
 Donate link: https://development.azurecurve.co.uk/support-development/
 Requires at least: 1.0.0
-Tested up to: 1.0.1
+Tested up to: 1.0.0
 Requires PHP: 5.6
 Stable tag: trunk
 License: GPLv2 or later
@@ -26,6 +26,9 @@ To install the Filtered Categories plugin:
 
 == Changelog ==
 Changes and feature additions for the Filtered Categories plugin:
+= 1.0.2 =
+* Update azurecurve menu for easier maintenance.
+* Move require of azurecurve menu below security check.
 = 1.0.1 =
 * Fix bug in shortcode output.
 = 1.0.0 =
