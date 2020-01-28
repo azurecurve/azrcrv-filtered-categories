@@ -3,7 +3,7 @@
  * ------------------------------------------------------------------------------
  * Plugin Name: Filtered Categories
  * Description: Creates a new Categories sidebar widget which allows categories to be included/excluded. A link to a categories page listing all categories can be configured to be displayed; a shortcode [fc] can be used on this page to display categories list.
- * Version: 1.0.2
+ * Version: 1.1.0
  * Author: azurecurve
  * Author URI: https://development.azurecurve.co.uk/classicpress-plugins/
  * Plugin URI: https://development.azurecurve.co.uk/classicpress-plugins/filtered-categories
@@ -24,6 +24,10 @@ if (!defined('ABSPATH')){
 
 // include plugin menu
 require_once(dirname( __FILE__).'/pluginmenu/menu.php');
+register_activation_hook(__FILE__, 'azrcrv_create_plugin_menu_fc');
+
+// include update client
+require_once(dirname(__FILE__).'/libraries/updateclient/UpdateClient.class.php');
 
 /**
  * Setup registration activation hook, actions, filters and shortcodes.
@@ -38,6 +42,7 @@ register_activation_hook(__FILE__, 'azrcrv_fc_set_default_options');
 add_action('admin_menu', 'azrcrv_fc_create_admin_menu');
 add_action('admin_post_azrcrv_fc_save_options', 'azrcrv_fc_save_options');
 add_action('widgets_init', 'azrcrv_fc_create_widget');
+add_action('plugins_loaded', 'azrcrv_fc_load_languages');
 
 // add filters
 add_filter('plugin_action_links', 'azrcrv_fc_add_plugin_action_link', 10, 2);
@@ -46,6 +51,17 @@ add_filter('dynamic_sidebar_params', 'azrcrv_fc_custom_widget_css');
 // add shortcodes
 add_shortcode('fc', 'azrcrv_fc_shortcode');
 add_shortcode('FC', 'azrcrv_fc_shortcode');
+
+/**
+ * Load language files.
+ *
+ * @since 1.0.0
+ *
+ */
+function azrcrv_fc_load_languages() {
+    $plugin_rel_path = basename(dirname(__FILE__)).'/languages';
+    load_plugin_textdomain('azrcrv-fc', false, $plugin_rel_path);
+}
 
 /**
  * Set default options for plugin.
@@ -168,7 +184,7 @@ function azrcrv_fc_display_options(){
 	?>
 	<div id="azrcrv-tc-general" class="wrap">
 		<fieldset>
-			<h2><?php echo esc_html(get_admin_page_title()); ?></h2>
+			<h1><?php echo esc_html(get_admin_page_title()); ?></h1>
 			<?php if(isset($_GET['settings-updated'])){ ?>
 				<div class="notice notice-success is-dismissible">
 					<p><strong><?php esc_html_e('Site settings have been saved.', 'filtered-categories') ?></strong></p>
