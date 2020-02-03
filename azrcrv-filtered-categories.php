@@ -3,7 +3,7 @@
  * ------------------------------------------------------------------------------
  * Plugin Name: Filtered Categories
  * Description: Creates a new Categories sidebar widget which allows categories to be included/excluded. A link to a categories page listing all categories can be configured to be displayed; a shortcode [fc] can be used on this page to display categories list.
- * Version: 1.1.0
+ * Version: 1.1.1
  * Author: azurecurve
  * Author URI: https://development.azurecurve.co.uk/classicpress-plugins/
  * Plugin URI: https://development.azurecurve.co.uk/classicpress-plugins/filtered-categories
@@ -60,7 +60,7 @@ add_shortcode('FC', 'azrcrv_fc_shortcode');
  */
 function azrcrv_fc_load_languages() {
     $plugin_rel_path = basename(dirname(__FILE__)).'/languages';
-    load_plugin_textdomain('azrcrv-fc', false, $plugin_rel_path);
+    load_plugin_textdomain('filtered-categories', false, $plugin_rel_path);
 }
 
 /**
