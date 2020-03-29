@@ -1,12 +1,12 @@
 === Filtered Categories ===
 
 Description:	Creates a new Categories sidebar widget which allows categories to be included/excluded.
-Version:		1.1.1
+Version:		1.1.2
 Tags:			filtered-categories
 Author:			azurecurve
 Author URI:		https://development.azurecurve.co.uk/
 Plugin URI:		https://development.azurecurve.co.uk/classicpress-plugins/filtered-categories/
-Download link:	https://github.com/azurecurve/azrcrv-filtered-categories/releases/download/v1.1.0/azrcrv-filtered-categories.zip
+Download link:	https://github.com/azurecurve/azrcrv-filtered-categories/releases/download/v1.1.2/azrcrv-filtered-categories.zip
 Donate link:	https://development.azurecurve.co.uk/support-development/
 Requires PHP:	5.6
 Requires:		1.0.0
@@ -50,6 +50,11 @@ This plugin is developed for ClassicPress, but will likely work on WordPress.
 == Changelog ==
 
 # Changelog
+
+### [Version 1.1.2](https://github.com/azurecurve/azrcrv-filtered-categories/releases/tag/v1.1.2)
+ * Update Update Manager class to v2.0.0.
+ * Update action link.
+ * Update azurecurve menu icon with compressed image.
 
 ### [Version 1.1.1](https://github.com/azurecurve/azrcrv-filtered-categories/releases/tag/v1.1.1)
  * Fix bug with incorrect language load text domain.
