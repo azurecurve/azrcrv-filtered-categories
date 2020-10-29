@@ -3,7 +3,7 @@
  * ------------------------------------------------------------------------------
  * Plugin Name: Filtered Categories
  * Description: Creates a new Categories sidebar widget which allows categories to be included/excluded. A link to a categories page listing all categories can be configured to be displayed; a shortcode [fc] can be used on this page to display categories list.
- * Version: 1.1.4
+ * Version: 1.2.0
  * Author: azurecurve
  * Author URI: https://development.azurecurve.co.uk/classicpress-plugins/
  * Plugin URI: https://development.azurecurve.co.uk/classicpress-plugins/filtered-categories/
@@ -36,7 +36,6 @@ require_once(dirname(__FILE__).'/libraries/updateclient/UpdateClient.class.php')
  *
  */
 // add actions
-add_action('admin_init', 'azrcrv_fc_set_default_options');
 add_action('admin_menu', 'azrcrv_fc_create_admin_menu');
 add_action('admin_post_azrcrv_fc_save_options', 'azrcrv_fc_save_options');
 add_action('widgets_init', 'azrcrv_fc_create_widget');
@@ -45,6 +44,8 @@ add_action('plugins_loaded', 'azrcrv_fc_load_languages');
 // add filters
 add_filter('plugin_action_links', 'azrcrv_fc_add_plugin_action_link', 10, 2);
 add_filter('dynamic_sidebar_params', 'azrcrv_fc_custom_widget_css');
+add_filter('codepotent_update_manager_image_path', 'azrcrv_fc_custom_image_path');
+add_filter('codepotent_update_manager_image_url', 'azrcrv_fc_custom_image_url');
 
 // add shortcodes
 add_shortcode('fc', 'azrcrv_fc_shortcode');
@@ -62,16 +63,40 @@ function azrcrv_fc_load_languages() {
 }
 
 /**
- * Set default options for plugin.
+ * Custom plugin image path.
  *
- * @since 1.0.0
+ * @since 1.2.0
  *
  */
-function azrcrv_fc_set_default_options($networkwide){
-	
-	$option_name = 'azrcrv-fc';
-	
-	$new_options = array(
+function azrcrv_fc_custom_image_path($path){
+    if (strpos($path, 'azrcrv-filtered-categories') !== false){
+        $path = plugin_dir_path(__FILE__).'assets/pluginimages';
+    }
+    return $path;
+}
+
+/**
+ * Custom plugin image url.
+ *
+ * @since 1.2.0
+ *
+ */
+function azrcrv_fc_custom_image_url($url){
+    if (strpos($url, 'azrcrv-filtered-categories') !== false){
+        $url = plugin_dir_url(__FILE__).'assets/pluginimages';
+    }
+    return $url;
+}
+
+/**
+ * Get options including defaults.
+ *
+ * @since 1.2.0
+ *
+ */
+function azrcrv_fc_get_option($option_name){
+ 
+	$defaults = array(
 						'taxonomy' => 'category',
 						'include_exclude' => 'include',
 						'category_page' => 'categories',
@@ -80,86 +105,14 @@ function azrcrv_fc_set_default_options($networkwide){
 						'category_page_feed_enabled' => 0,
 						'category_page_feed_image' => '',
 						'category' => array(''),
-						'updated' => strtotime('2020-04-04'),
-			);
-	
-	// set defaults for multi-site
-	if (function_exists('is_multisite') && is_multisite()){
-		// check if it is a network activation - if so, run the activation function for each blog id
-		if ($networkwide){
-			global $wpdb;
+					);
 
-			$blog_ids = $wpdb->get_col("SELECT blog_id FROM $wpdb->blogs");
-			$original_blog_id = get_current_blog_id();
+	$options = get_option($option_name, $defaults);
 
-			foreach ($blog_ids as $blog_id){
-				switch_to_blog($blog_id);
-				
-				azrcrv_fc_update_options($option_name, $new_options, false);
-			}
+	$options = wp_parse_args($options, $defaults);
 
-			switch_to_blog($original_blog_id);
-		}else{
-			azrcrv_fc_update_options( $option_name, $new_options, false);
-		}
-		if (get_site_option($option_name) === false){
-			azrcrv_fc_update_options($option_name, $new_options, true);
-		}
-	}
-	//set defaults for single site
-	else{
-		azrcrv_fc_update_options($option_name, $new_options, false);
-	}
-}
+	return $options;
 
-/**
- * Update options.
- *
- * @since 1.1.3
- *
- */
-function azrcrv_fc_update_options($option_name, $new_options, $is_network_site){
-	if ($is_network_site == true){
-		if (get_site_option($option_name) === false){
-			add_site_option($option_name, $new_options);
-		}else{
-			$options = get_site_option($option_name);
-			if (!isset($options['updated']) OR $options['updated'] < $new_options['updated'] ){
-				$options['updated'] = $new_options['updated'];
-				update_site_option($option_name, azrcrv_fc_update_default_options($options, $new_options));
-			}
-		}
-	}else{
-		if (get_option($option_name) === false){
-			add_option($option_name, $new_options);
-		}else{
-			$options = get_option($option_name);
-			if (!isset($options['updated']) OR $options['updated'] < $new_options['updated'] ){
-				$options['updated'] = $new_options['updated'];
-				update_option($option_name, azrcrv_fc_update_default_options($options, $new_options));
-			}
-		}
-	}
-}
-
-/**
- * Add default options to existing options.
- *
- * @since 1.1.3
- *
- */
-function azrcrv_fc_update_default_options( &$default_options, $current_options ) {
-    $default_options = (array) $default_options;
-    $current_options = (array) $current_options;
-    $updated_options = $current_options;
-    foreach ($default_options as $key => &$value) {
-        if (is_array( $value) && isset( $updated_options[$key])){
-            $updated_options[$key] = azrcrv_fc_update_default_options($value, $updated_options[$key]);
-        } else {
-			$updated_options[$key] = $value;
-        }
-    }
-    return $updated_options;
 }
 
 /**
@@ -176,7 +129,7 @@ function azrcrv_fc_add_plugin_action_link($links, $file){
 	}
 
 	if ($file == $this_plugin){
-		$settings_link = '<a href="'.get_bloginfo('wpurl').'/wp-admin/admin.php?page=azrcrv-fc"><img src="'.plugins_url('/pluginmenu/images/Favicon-16x16.png', __FILE__).'" style="padding-top: 2px; margin-right: -5px; height: 16px; width: 16px;" alt="azurecurve" />'.esc_html__('Settings' ,'filtered-categories').'</a>';
+		$settings_link = '<a href="'.admin_url('admin.php?page=azrcrv-fc').'"><img src="'.plugins_url('/pluginmenu/images/Favicon-16x16.png', __FILE__).'" style="padding-top: 2px; margin-right: -5px; height: 16px; width: 16px;" alt="azurecurve" />'.esc_html__('Settings' ,'filtered-categories').'</a>';
 		array_unshift($links, $settings_link);
 	}
 
