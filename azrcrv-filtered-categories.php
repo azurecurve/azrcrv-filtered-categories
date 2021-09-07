@@ -3,7 +3,7 @@
  * ------------------------------------------------------------------------------
  * Plugin Name: Filtered Categories
  * Description: Creates a new Categories sidebar widget which allows categories to be included/excluded. A link to a categories page listing all categories can be configured to be displayed; a shortcode [fc] can be used on this page to display categories list.
- * Version: 1.2.1
+ * Version: 1.2.2
  * Author: azurecurve
  * Author URI: https://development.azurecurve.co.uk/classicpress-plugins/
  * Plugin URI: https://development.azurecurve.co.uk/classicpress-plugins/filtered-categories/
@@ -203,13 +203,8 @@ function azrcrv_fc_display_options(){
 							$query = "SELECT t.term_id AS `term_id`, t.name AS `name` FROM $wpdb->term_taxonomy tt INNER JOIN $wpdb->terms t On t.term_id = tt.term_id WHERE tt.taxonomy = 'category' ORDER BY t.name";
 							$_query_result = $wpdb->get_results($query);
 							foreach($_query_result as $data){
-								if (isset($options['category'][$data->term_id])){
-									$selected_category = checked('1', $options['category'][$data->term_id]);
-								}else{
-									$selected_category = '';
-								}
 								?>
-								<label for="<?php echo $data->term_id; ?>"><input name="category[<?php echo $data->term_id; ?>]" type="checkbox" id="category" value="1" <?php echo $selected_category; ?> /><?php echo esc_html($data->name); ?></label><br />
+								<label for="<?php echo $data->term_id; ?>"><input name="category[<?php echo $data->term_id; ?>]" type="checkbox" id="category" value="1" <?php checked('1', $options['category'][$data->term_id]) ?> /><?php echo esc_html($data->name); ?></label><br />
 								<?php
 							}
 							unset($_query_result);
