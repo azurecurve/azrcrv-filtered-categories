@@ -1,17 +1,18 @@
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Filtered Categories\n"
-"POT-Creation-Date: 2019-02-24 18:48+0000\n"
+"POT-Creation-Date: 2021-12-27 17:53+0000\n"
 "PO-Revision-Date: 2019-02-24 18:49+0000\n"
 "Last-Translator: \n"
-"Language-Team: https://translate.azurecurve.co.uk/\n"
+"Language-Team: translate@azurecurve.co.uk\n"
 "Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
-"X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e\n"
 "X-Poedit-SearchPath-0: azrcrv-filtered-categories.php\n"
 
@@ -31,72 +32,72 @@ msgstr ""
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
-#: azrcrv-filtered-categories.php:175
+#: azrcrv-filtered-categories.php:180
 msgid "Site settings have been saved."
 msgstr ""
 
-#: azrcrv-filtered-categories.php:186
+#: azrcrv-filtered-categories.php:191
 msgid "Include/Exclude Categories?"
 msgstr ""
 
-#: azrcrv-filtered-categories.php:188
+#: azrcrv-filtered-categories.php:193
 msgid "Include"
 msgstr ""
 
-#: azrcrv-filtered-categories.php:189
+#: azrcrv-filtered-categories.php:194
 msgid "Exclude"
 msgstr ""
 
-#: azrcrv-filtered-categories.php:191
+#: azrcrv-filtered-categories.php:196
 msgid "Flag whether marked categories should be included or excluded"
 msgstr ""
 
-#: azrcrv-filtered-categories.php:194
+#: azrcrv-filtered-categories.php:199
 msgid "Categories to Include/Exclude"
 msgstr ""
 
-#: azrcrv-filtered-categories.php:208
+#: azrcrv-filtered-categories.php:213
 msgid "Mark the tags you want to include/exclude from the categories"
 msgstr ""
 
-#: azrcrv-filtered-categories.php:211
+#: azrcrv-filtered-categories.php:216
 msgid "Category Page"
 msgstr ""
 
-#: azrcrv-filtered-categories.php:213
+#: azrcrv-filtered-categories.php:218
 msgid "Set default category page"
 msgstr ""
 
-#: azrcrv-filtered-categories.php:216
+#: azrcrv-filtered-categories.php:221
 msgid "Category Link Text"
 msgstr ""
 
-#: azrcrv-filtered-categories.php:218
+#: azrcrv-filtered-categories.php:223
 msgid "Set default category link text"
 msgstr ""
 
-#: azrcrv-filtered-categories.php:221 azrcrv-filtered-categories.php:222
+#: azrcrv-filtered-categories.php:226 azrcrv-filtered-categories.php:227
 msgid "Category page show count?"
 msgstr ""
 
-#: azrcrv-filtered-categories.php:227 azrcrv-filtered-categories.php:228
+#: azrcrv-filtered-categories.php:232 azrcrv-filtered-categories.php:233
 msgid "Enable category page feed image?"
 msgstr ""
 
-#: azrcrv-filtered-categories.php:233
+#: azrcrv-filtered-categories.php:238
 msgid "Category Page Feed Image"
 msgstr ""
 
-#: azrcrv-filtered-categories.php:235
+#: azrcrv-filtered-categories.php:240
 msgid ""
 "Set category page feed image; leave blank for a default of \"/wp-includes/"
 "images/rss.png\""
 msgstr ""
 
-#: azrcrv-filtered-categories.php:256
+#: azrcrv-filtered-categories.php:261
 msgid "You do not have permissions to perform this action"
 msgstr ""
 
-#: azrcrv-filtered-categories.php:341
+#: azrcrv-filtered-categories.php:351
 msgid "A filtered list of categories."
 msgstr ""
