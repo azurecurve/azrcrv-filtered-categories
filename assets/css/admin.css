@@ -1,0 +1,10 @@
+/* Filtered Categories — admin styles
+----------------------------------------------- */
+
+/* Category checkbox scrollbox */
+.azrcrv-fc-scrollbox {
+	max-height: 200px;
+	overflow-y: auto;
+	border: 1px solid #ddd;
+	padding: 8px;
+}

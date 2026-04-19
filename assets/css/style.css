@@ -1,12 +1,16 @@
-/* tag cloud
+/* Filtered Categories — front-end styles
 ----------------------------------------------- */
-p.azc-fc{
+
+/* Widget category page link */
+p.azrcrv-fc-link {
 	padding-top: 5px;
 	font-style: italic;
 	font-size: 1.1em;
 	font-weight: 900;
 }
-div.azc-fc{
+
+/* Shortcode wrapper */
+div.azrcrv-fc {
 	border: none;
 	width: 90%;
 	margin: auto;

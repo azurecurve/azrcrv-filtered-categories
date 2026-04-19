@@ -24,7 +24,7 @@ This plugin is multisite compatible; each site will need settings to be configur
 # Frequently Asked Questions
 
 ### Can I translate this plugin?
-Yes, the .pot file is in the plugins languages folder; if you do translate this plugin, please sent the .po and .mo files to translations@azurecurve.co.uk for inclusion in the next version (full credit will be given).
+Yes, the .pot file is in the plugins assets/languages folder; if you do translate this plugin, please sent the .po and .mo files to translations@azurecurve.co.uk for inclusion in the next version (full credit will be given).
 
 ### Is this plugin compatible with both WordPress and ClassicPress?
 This plugin is developed for ClassicPress, but will likely work on WordPress.
@@ -32,6 +32,32 @@ This plugin is developed for ClassicPress, but will likely work on WordPress.
 == Changelog ==
 
 # Changelog
+
+### [Version 2.0.0](https://github.com/azurecurve/azrcrv-filtered-categories/releases/tag/v2.0.0)
+ * Restructure plugin to split-file includes/ layout matching current azurecurve plugin pattern.
+ * Introduce PHP namespace azurecurve\FilteredCategories.
+ * Replace pluginmenu/ component with includes/azurecurve-menu-populate.php and includes/azurecurve-menu-display.php.
+ * Convert jQuery tab-switching script to vanilla JavaScript.
+ * Rename assets/jquery/ to assets/js/.
+ * Rename assets/pluginimages/ to assets/images/.
+ * Move language files to assets/languages/ and update Domain Path header.
+ * Update text domain from filtered-categories to azrcrv-fc.
+ * Add tabbed settings UI with Settings, Instructions and Other Plugins tabs.
+ * Fix: nonce slug updated from azrcrv-f to azrcrv-fc.
+ * Fix: wp_redirect replaced with wp_safe_redirect.
+ * Fix: category_link output now escaped with esc_html().
+ * Fix: widget update() now uses sanitize_text_field() instead of strip_tags().
+ * Fix: wp_unslash() applied to POST data at save time.
+ * Fix: settings page div id typo corrected (azrcrv-tc-general to azrcrv-fc-general).
+ * Fix: redundant uppercase [FC] shortcode registration removed.
+ * Fix: codepotent_update_manager image filters updated to plugin-slug-specific hooks.
+ * Fix: get_option() calls in widget and shortcode replaced with get_option_with_defaults().
+ * Fix: fatal error when configured category page does not exist.
+ * Add scrollbox CSS for category checkbox list in settings.
+ * Remove unused page_options hidden input from settings form.
+ * Remove unused taxonomy key from option defaults.
+ * Improve PHP 8.x compatibility.
+ * Apply WordPress Coding Standards formatting throughout.
 
 ### [Version 1.2.7](https://github.com/azurecurve/azrcrv-filtered-categories/releases/tag/v1.2.7)
  * Update plugin header for compatibility with ClasssicPress v2.
@@ -101,16 +127,14 @@ This plugin is developed for ClassicPress, but will likely work on WordPress.
 
 # About azurecurve
 
-**azurecurve** was one of the first plugin developers to start developing for ClassicPress; all plugins are available from [azurecurve Development](https://development.azurecurve.co.uk/) and are integrated with the [Update Manager plugin](https://directory.classicpress.net/plugins/update-manager) for fully integrated, no hassle, updates.
+**azurecurve** was one of the first plugin developers to start developing for Classicpress; all plugins are available from [azurecurve Development](https://development.azurecurve.co.uk/) and are integrated with the [Update Manager plugin](https://directory.classicpress.net/plugins/update-manager) for fully integrated, no hassle, updates.
 
-The other plugins available from **azurecurve** are:
+Plugins available from **azurecurve** are:
  * Add Open Graph Tags - [details](https://development.azurecurve.co.uk/classicpress-plugins/add-open-graph-tags/) / [download](https://github.com/azurecurve/azrcrv-add-open-graph-tags/releases/latest/)
  * Add Twitter Cards - [details](https://development.azurecurve.co.uk/classicpress-plugins/add-twitter-cards/) / [download](https://github.com/azurecurve/azrcrv-add-twitter-cards/releases/latest/)
  * Avatars - [details](https://development.azurecurve.co.uk/classicpress-plugins/avatars/) / [download](https://github.com/azurecurve/azrcrv-avatars/releases/latest/)
- * BBCode - [details](https://development.azurecurve.co.uk/classicpress-plugins/bbcode/) / [download](https://github.com/azurecurve/azrcrv-bbcode/releases/latest/)
  * Breadcrumbs - [details](https://development.azurecurve.co.uk/classicpress-plugins/breadcrumbs/) / [download](https://github.com/azurecurve/azrcrv-breadcrumbs/releases/latest/)
  * Call-out Boxes - [details](https://development.azurecurve.co.uk/classicpress-plugins/call-out-boxes/) / [download](https://github.com/azurecurve/azrcrv-call-out-boxes/releases/latest/)
- * Check Plugin Status - [details](https://development.azurecurve.co.uk/classicpress-plugins/check-plugin-status/) / [download](https://github.com/azurecurve/azrcrv-check-plugin-status/releases/latest/)
  * Code - [details](https://development.azurecurve.co.uk/classicpress-plugins/code/) / [download](https://github.com/azurecurve/azrcrv-code/releases/latest/)
  * Comment Validator - [details](https://development.azurecurve.co.uk/classicpress-plugins/comment-validator/) / [download](https://github.com/azurecurve/azrcrv-comment-validator/releases/latest/)
  * Conditional Links - [details](https://development.azurecurve.co.uk/classicpress-plugins/conditional-links/) / [download](https://github.com/azurecurve/azrcrv-conditional-links/releases/latest/)
@@ -119,6 +143,7 @@ The other plugins available from **azurecurve** are:
  * Display After Post Content - [details](https://development.azurecurve.co.uk/classicpress-plugins/display-after-post-content/) / [download](https://github.com/azurecurve/azrcrv-display-after-post-content/releases/latest/)
  * Estimated Read Time - [details](https://development.azurecurve.co.uk/classicpress-plugins/estimated-read-time/) / [download](https://github.com/azurecurve/azrcrv-estimated-read-time/releases/latest/)
  * Events - [details](https://development.azurecurve.co.uk/classicpress-plugins/events/) / [download](https://github.com/azurecurve/azrcrv-events/releases/latest/)
+ * Filtered Categories - [details](https://development.azurecurve.co.uk/classicpress-plugins/filtered-categories/) / [download](https://github.com/azurecurve/azrcrv-filtered-categories/releases/latest/)
  * Flags - [details](https://development.azurecurve.co.uk/classicpress-plugins/flags/) / [download](https://github.com/azurecurve/azrcrv-flags/releases/latest/)
  * Floating Featured Image - [details](https://development.azurecurve.co.uk/classicpress-plugins/floating-featured-image/) / [download](https://github.com/azurecurve/azrcrv-floating-featured-image/releases/latest/)
  * Gallery From Folder - [details](https://development.azurecurve.co.uk/classicpress-plugins/gallery-from-folder/) / [download](https://github.com/azurecurve/azrcrv-gallery-from-folder/releases/latest/)
@@ -128,6 +153,7 @@ The other plugins available from **azurecurve** are:
  * Insult Generator - [details](https://development.azurecurve.co.uk/classicpress-plugins/insult-generator/) / [download](https://github.com/azurecurve/azrcrv-insult-generator/releases/latest/)
  * Load Admin CSS - [details](https://development.azurecurve.co.uk/classicpress-plugins/load-admin-css/) / [download](https://github.com/azurecurve/azrcrv-load-admin-css/releases/latest/)
  * Loop Injection - [details](https://development.azurecurve.co.uk/classicpress-plugins/loop-injection/) / [download](https://github.com/azurecurve/azrcrv-loop-injection/releases/latest/)
+ * Lorem Ipsum Generator - [details](https://development.azurecurve.co.uk/classicpress-plugins/lorem-ipsum-generator/) / [download](https://github.com/azurecurve/azrcrv-lorem-ipsum-generator/releases/latest/)
  * Maintenance Mode - [details](https://development.azurecurve.co.uk/classicpress-plugins/maintenance-mode/) / [download](https://github.com/azurecurve/azrcrv-maintenance-mode/releases/latest/)
  * Markdown - [details](https://development.azurecurve.co.uk/classicpress-plugins/markdown/) / [download](https://github.com/azurecurve/azrcrv-markdown/releases/latest/)
  * Mobile Detection - [details](https://development.azurecurve.co.uk/classicpress-plugins/mobile-detection/) / [download](https://github.com/azurecurve/azrcrv-mobile-detection/releases/latest/)
@@ -145,6 +171,7 @@ The other plugins available from **azurecurve** are:
  * Sidebar Login - [details](https://development.azurecurve.co.uk/classicpress-plugins/sidebar-login/) / [download](https://github.com/azurecurve/azrcrv-sidebar-login/releases/latest/)
  * SMTP - [details](https://development.azurecurve.co.uk/classicpress-plugins/smtp/) / [download](https://github.com/azurecurve/azrcrv-smtp/releases/latest/)
  * Snippets - [details](https://development.azurecurve.co.uk/classicpress-plugins/snippets/) / [download](https://github.com/azurecurve/azrcrv-snippets/releases/latest/)
+ * String Inspector - [details](https://development.azurecurve.co.uk/classicpress-plugins/string-inspector/) / [download](https://github.com/azurecurve/azrcrv-string-inspector/releases/latest/)
  * Strong Password Generator - [details](https://development.azurecurve.co.uk/classicpress-plugins/strong-password-generator/) / [download](https://github.com/azurecurve/azrcrv-strong-password-generator/releases/latest/)
  * Tag Cloud - [details](https://development.azurecurve.co.uk/classicpress-plugins/tag-cloud/) / [download](https://github.com/azurecurve/azrcrv-tag-cloud/releases/latest/)
  * Taxonomy Index - [details](https://development.azurecurve.co.uk/classicpress-plugins/taxonomy-index/) / [download](https://github.com/azurecurve/azrcrv-taxonomy-index/releases/latest/)
