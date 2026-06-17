@@ -33,6 +33,10 @@ This plugin is developed for ClassicPress, but will likely work on WordPress.
 
 # Changelog
 
+### [Version 2.0.1](https://github.com/azurecurve/azrcrv-filtered-categories/releases/tag/v2.0.1)
+ * Upgrade UpdateClient.
+ * Update azurecurve plugins list.
+ 
 ### [Version 2.0.0](https://github.com/azurecurve/azrcrv-filtered-categories/releases/tag/v2.0.0)
  * Restructure plugin to split-file includes/ layout matching current azurecurve plugin pattern.
  * Introduce PHP namespace azurecurve\FilteredCategories.

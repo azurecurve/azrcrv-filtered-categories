@@ -12,13 +12,7 @@ namespace azurecurve\FilteredCategories;
  * Register admin scripts.
  */
 function register_admin_scripts() {
-	wp_register_script(
-		PLUGIN_HYPHEN . '-admin-js',
-		esc_url_raw( plugins_url( '../assets/js/admin-standard.js', __FILE__ ) ),
-		array(),
-		'2.0.0',
-		true
-	);
+	wp_register_script( 'azrcrv-admin-standard-js', esc_url_raw( plugins_url( '../assets/js/admin-standard.js', __FILE__ ) ), array(), '26.6.8', true );
 }
 
 /**
