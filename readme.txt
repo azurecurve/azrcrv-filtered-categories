@@ -33,6 +33,9 @@ This plugin is developed for ClassicPress, but will likely work on WordPress.
 
 # Changelog
 
+### [Version 2.0.2](https://github.com/azurecurve/azrcrv-filtered-categories/releases/tag/v2.0.2)
+ * Fix namespace issue.
+ 
 ### [Version 2.0.1](https://github.com/azurecurve/azrcrv-filtered-categories/releases/tag/v2.0.1)
  * Upgrade UpdateClient.
  * Update azurecurve plugins list.

@@ -19,7 +19,7 @@
  */
 
 // EDIT: Make this unique. Example: YourDevName\YourPluginName;
-namespace azurecurve\MaintenanceMode;
+namespace azurecurve\FilteredCategories;
 
 // EDIT: URL where Update Manager is installed; with trailing slash!
 const UPDATE_SERVER = 'https://update.development.azurecurve.co.uk/';

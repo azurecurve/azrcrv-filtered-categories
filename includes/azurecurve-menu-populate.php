@@ -7,7 +7,7 @@
 /**
  * Declare the Namespace.
  */
-namespace azurecurve\MaintenanceMode;
+namespace azurecurve\FilteredCategories;
 
 /**
  *  Add action.
