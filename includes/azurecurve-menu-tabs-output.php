@@ -47,7 +47,7 @@
 ?>
 <div class='azrcrv-donate'>
 	<?php
-		esc_html_e( 'Support', 'azrcrv-cv' );
+		esc_html_e( 'Support', 'azrcrv-fc' );
 	?>
 	azurecurve | Development
 	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -58,7 +58,7 @@
 	</form>
 	<span>
 		<?php
-		esc_html_e( 'You can help support the development of our free plugins by donating a small amount of money.', 'azrcrv-cv' );
+		esc_html_e( 'You can help support the development of our free plugins by donating a small amount of money.', 'azrcrv-fc' );
 		?>
 	</span>
 </div>
